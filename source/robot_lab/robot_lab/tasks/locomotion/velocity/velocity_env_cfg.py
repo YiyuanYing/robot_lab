@@ -46,24 +46,45 @@ class MySceneCfg(InteractiveSceneCfg):
     """Configuration for the terrain scene with a legged robot."""
 
     # ground terrain
+    # terrain = TerrainImporterCfg(
+    #     prim_path="/World/ground",
+    #     terrain_type="generator",
+    #     terrain_generator=ROUGH_TERRAINS_CFG,
+    #     max_init_terrain_level=5,
+    #     collision_group=-1,
+    #     physics_material=sim_utils.RigidBodyMaterialCfg(
+    #         friction_combine_mode="multiply",
+    #         restitution_combine_mode="multiply",
+    #         static_friction=1.0,
+    #         dynamic_friction=1.0,
+    #     ),
+    #     visual_material=sim_utils.MdlFileCfg(
+    #         mdl_path=f"{ISAACLAB_NUCLEUS_DIR}/Materials/TilesMarbleSpiderWhiteBrickBondHoned/TilesMarbleSpiderWhiteBrickBondHoned.mdl",
+    #         project_uvw=True,
+    #         texture_scale=(0.25, 0.25),
+    #     ),
+    #     debug_vis=True,
+    # )
+    # terrain = TerrainImporterCfg(
+    #     prim_path = "/World/ground",
+    #     terrain_type = "usd",
+    #     usd_path = "/home/ime-lab/isaacsim/test/board2.usd",
+    #     collision_group = -1,
+    #     num_envs = 64,
+    #     env_spacing = 5.0,
+    #     physics_material=sim_utils.RigidBodyMaterialCfg(
+    #         friction_combine_mode="multiply",
+    #         restitution_combine_mode="multiply",
+    #         static_friction=1.0,
+    #         dynamic_friction=1.0,
+    #     ),
+    #     debug_vis=True,
+    #     )
     terrain = TerrainImporterCfg(
-        prim_path="/World/ground",
-        terrain_type="generator",
-        terrain_generator=ROUGH_TERRAINS_CFG,
-        max_init_terrain_level=5,
-        collision_group=-1,
-        physics_material=sim_utils.RigidBodyMaterialCfg(
-            friction_combine_mode="multiply",
-            restitution_combine_mode="multiply",
-            static_friction=1.0,
-            dynamic_friction=1.0,
-        ),
-        visual_material=sim_utils.MdlFileCfg(
-            mdl_path=f"{ISAACLAB_NUCLEUS_DIR}/Materials/TilesMarbleSpiderWhiteBrickBondHoned/TilesMarbleSpiderWhiteBrickBondHoned.mdl",
-            project_uvw=True,
-            texture_scale=(0.25, 0.25),
-        ),
-        debug_vis=False,
+        prim_path = "/World/ground",
+        terrain_type = "plane",
+        terrain_generator = None,
+        debug_vis = True,
     )
     # robots
     robot: ArticulationCfg = MISSING
@@ -260,10 +281,10 @@ class EventCfg:
         mode="startup",
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
-            "static_friction_range": (0.1, 1.0),
-            "dynamic_friction_range": (0.1, 0.8),
-            "restitution_range": (0.0, 0.5),
-            "num_buckets": 32,
+            "static_friction_range": (0.3, 1.0),
+            "dynamic_friction_range": (0.3, 0.8),
+            "restitution_range": (0.0, 0.0),
+            "num_buckets": 64,
         },
     )
 
@@ -314,7 +335,7 @@ class EventCfg:
         mode="reset",
         params={
             "position_range": (-0.2, 0.2),
-            "velocity_range": (-0.5, 0.5),
+            "velocity_range": (-2.5, 2.5),
         },
     )
 
@@ -471,15 +492,6 @@ class RewardsCfg:
         },
     )
 
-    action_mirror = RewTerm(
-        func=mdp.action_mirror,
-        weight=0.0,
-        params={
-            "asset_cfg": SceneEntityCfg("robot"),
-            "mirror_joints": [["FR.*", "RL.*"], ["FL.*", "RR.*"]],
-        },
-    )
-
     # Action penalties
     applied_torque_limits = RewTerm(
         func=mdp.applied_torque_limits,
@@ -621,7 +633,13 @@ class RewardsCfg:
     #     },
     # )
 
-    upward = RewTerm(func=mdp.upward, weight=0.0)
+    upward = RewTerm(
+        func=mdp.upward,
+        weight=0.0,
+        params={
+            "std": math.sqrt(0.5),
+        },
+    )
 
 
 @configclass
@@ -650,13 +668,13 @@ class CurriculumCfg:
 
     terrain_levels = CurrTerm(func=mdp.terrain_levels_vel)
 
-    # command_levels = CurrTerm(
-    #     func=mdp.command_levels_vel,
-    #     params={
-    #         "reward_term_name": "track_lin_vel_xy_exp",
-    #         "max_curriculum": 1.5,
-    #     },
-    # )
+    command_levels = CurrTerm(
+        func=mdp.command_levels_vel,
+        params={
+            "reward_term_name": "track_lin_vel_xy_exp",
+            "max_curriculum": 1.5,
+        },
+    )
 
 
 ##
@@ -669,7 +687,8 @@ class LocomotionVelocityRoughEnvCfg(ManagerBasedRLEnvCfg):
     """Configuration for the locomotion velocity-tracking environment."""
 
     # Scene settings
-    scene: MySceneCfg = MySceneCfg(num_envs=4096, env_spacing=2.5)
+    scene: MySceneCfg = MySceneCfg(num_envs=4096, env_spacing=20.0)
+    
     # Basic settings
     observations: ObservationsCfg = ObservationsCfg()
     actions: ActionsCfg = ActionsCfg()
