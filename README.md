@@ -450,7 +450,7 @@ source/robot_lab/robot_lab/tasks/locomotion/velocity/config/quadruped/xjqr_2leg_
 To run the train and play code:
 ```
 # Train
-python scripts/rsl_rl/base/train.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0
+python scripts/rsl_rl/base/train.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0 --headless
 # Play
 python scripts/rsl_rl/base/play.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0
 ```
@@ -465,3 +465,24 @@ else:
     # raise ValueError("Received unsupported terrain type, must be either 'plane' or 'generator'.")
 ```
 In my opinion this change won't change the training result, but I'd like to mention it as a notes, as it was surely changed in the workstation in 212.
+
+And as in XJQR training, the robot should run on a board instead of on a flat or rough ground, thus `terrain = TerrainImporterCfg()` in [`velocity_env_cfg.py`](source/robot_lab/robot_lab/tasks/locomotion/velocity/velocity_env_cfg.py) was commented out and was set as following:
+```
+terrain = TerrainImporterCfg(
+    prim_path = "/World/ground",
+    terrain_type = "plane",
+    terrain_generator = None,
+    debug_vis = True,
+)
+```
+The settings of `env_spacing` in [`velocity_env_cfg.py`](source/robot_lab/robot_lab/tasks/locomotion/velocity/velocity_env_cfg.py) was changed to `20.0` from `2.5` in the default settings:
+
+```
+# Scene settings
+scene: MySceneCfg = MySceneCfg(num_envs=4096, env_spacing=20.0)
+```
+
+For the configuration code of a new robot(e.g. [`xjqr.py`](source/robot_lab/robot_lab/assets/xjqr.py)), you should add a `import` code in the [`source/robot_lab/robot_lab/assets/__init__.py`](source/robot_lab/robot_lab/assets/__init__.py) as following:
+```
+from .xjqr import *
+```
