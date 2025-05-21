@@ -430,3 +430,18 @@ Please cite the following if you use this code or parts of it:
   year = {2024}
 }
 ```
+
+
+## XJQR - for my own robot
+
+After clone the repository and set up the IsaacLab environment, you may start the training by using the existing settings for the two leg robot on the board of the satellite(robotenv8.usd, which is in the "source/robot_lab/data/Robots/xjqr" in this repo). Before the training start, you should check the "usd_path" settings in the "[xjqr.py](source/robot_lab/robot_lab/assets/xjqr.py)", and make sure that the path is the true path of the usd file.
+
+To run the train and play code:
+```
+# Train
+python scripts/rsl_rl/base/train.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0
+# Play
+python scripts/rsl_rl/base/play.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0
+```
+And in the train script, you may set the environment numbers by `--num_envs 4096`, and set the headless by `--headless`(which can let the training using less time)
+
