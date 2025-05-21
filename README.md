@@ -434,7 +434,18 @@ Please cite the following if you use this code or parts of it:
 
 ## XJQR - for my own robot
 
-After clone the repository and set up the IsaacLab environment, you may start the training by using the existing settings for the two leg robot on the board of the satellite(robotenv8.usd, which is in the "source/robot_lab/data/Robots/xjqr" in this repo). Before the training start, you should check the "usd_path" settings in the "[xjqr.py](source/robot_lab/robot_lab/assets/xjqr.py)", and make sure that the path is the true path of the usd file.
+After clone the repository and set up the IsaacLab environment, you may start the training by using the existing settings for the two leg robot on the board of the satellite(`robotenv8.usd`, which is in the `source/robot_lab/data/Robots/xjqr` in this repo). Before the training start, you should check the `usd_path` settings in the "[`xjqr.py`](source/robot_lab/robot_lab/assets/xjqr.py)", and make sure that the path is the true path of the usd file.
+
+The codes structure for the training settings of XJQR in this repo is as following:
+
+```
+source/robot_lab/robot_lab/tasks/locomotion/velocity/config/quadruped/xjqr_2leg_wheel/
+├── __init__.py
+├── agents/
+│   ├── __init__.py
+│   └── rsl_rl_ppo_cfg.py
+└── satellite_env_cfg.py
+```
 
 To run the train and play code:
 ```
@@ -445,3 +456,12 @@ python scripts/rsl_rl/base/play.py --task Isaac-Velocity-Satellite-XJQR-2leg-whe
 ```
 And in the train script, you may set the environment numbers by `--num_envs 4096`, and set the headless by `--headless`(which can let the training using less time)
 
+The robot is registered in the "[`__init__.py`](source/robot_lab/robot_lab/tasks/locomotion/velocity/config/quadruped/xjqr_2leg_wheel/__init__.py)" following the guidelines in the previous section "Add your own robot".
+
+And in the previous training of xjqr, the code in the IsaacLab was modified due to a bug. It's in the `terminations.py` in `source/isaaclab_tasks/isaaclab_tasks/manager_based/locomotion/velocity/mdp/terminations.py` of IsaacLab repo. The code in Line51-52 was changed to:
+```
+else:
+    return False
+    # raise ValueError("Received unsupported terrain type, must be either 'plane' or 'generator'.")
+```
+In my opinion this change won't change the training result, but I'd like to mention it as a notes, as it was surely changed in the workstation in 212.
