@@ -9,6 +9,7 @@ XJQR_2LEG_WHEEL=ArticulationCfg(
         # usd_path=f"/home/ime-lab/XJQR/twoleg_foot/urdf/twoleg_foot/twoleg_foot.usd",
         usd_path=f"/home/ime-lab/isaacsim/standalone_examples/scripts/robotenv8.usd", 
         # usd_path需要根据文件实际目录更改，4090上放在isaacsim的文件夹下，repo里在./model下也有一份
+        # repo的models都放在"model\xjqr"这里，比如"model\xjqr\robotenv8.usd"
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -24,6 +25,7 @@ XJQR_2LEG_WHEEL=ArticulationCfg(
         ),
     ),
     init_state=ArticulationCfg.InitialStateCfg(
+        #初始位置和初始姿态，初始姿态我设置成了前后扒拉在帆板上的角度（需要弧度制），关节名可以用正则表达式
         pos=(0.0, 0.0, 1.4),
         # pos = (0.0, 0.0, 0.22),
         joint_pos={

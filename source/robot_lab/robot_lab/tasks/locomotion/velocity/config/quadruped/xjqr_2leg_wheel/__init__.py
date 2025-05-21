@@ -27,6 +27,8 @@ from .satellite_env_cfg import xjqr2legWheelRoughEnvCfg
 #     },
 # )
 
+
+# 注册机器人的id和其他函数名
 gym.register(
     id="Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0",
     entry_point="isaaclab.envs:ManagerBasedRLEnv",

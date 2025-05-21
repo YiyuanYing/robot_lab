@@ -4,6 +4,7 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlPpoActorCriticCfg, R
 
 @configclass
 class xjqr2legWheelRoughPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+    # 这里的项目都可以在isaaclab的相关文件中找到函数定义
     num_steps_per_env = 24
     max_iterations = 20000
     save_interval = 100
@@ -23,7 +24,7 @@ class xjqr2legWheelRoughPPORunnerCfg(RslRlOnPolicyRunnerCfg):
         entropy_coef=0.01,
         num_learning_epochs=5,
         num_mini_batches=4,
-        learning_rate=1.0e-2,
+        learning_rate=1.0e-2, # 学习率，默认的是1e-3，之前改成了1e-2
         schedule="adaptive",
         gamma=0.99,
         lam=0.95,

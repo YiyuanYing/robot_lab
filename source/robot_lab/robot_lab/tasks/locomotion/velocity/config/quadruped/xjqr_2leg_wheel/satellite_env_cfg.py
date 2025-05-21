@@ -128,6 +128,9 @@ class xjqr2legWheelRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.events.randomize_apply_external_force_torque.params["asset_cfg"].body_names = [self.base_link_name]
 
         # ------------------------------Rewards------------------------------
+        # Rewards的函数都在"source\robot_lab\robot_lab\tasks\locomotion\velocity\mdp\rewards.py"下
+        # 训练过的代码里用的都是既有的奖励函数，没有根据需求自己新增奖励函数
+        # 主要约束的是track_lin_vel_xy_exp和feet_contact（有调整并对比过一些效果）
         # General
         self.rewards.is_terminated.weight = 0
 
@@ -210,6 +213,8 @@ class xjqr2legWheelRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         # self.terminations.illegal_contact = None
 
         # ------------------------------Commands------------------------------
+        # 机器人的运动指令，我的理解是给出指令然后通过track_lin_vel_xy_exp这一项来跟踪并给奖励
+        # 场景里帆板方向是y方向
         # self.commands.base_velocity.ranges.lin_vel_x = (-1.5, 1.5)
         self.commands.base_velocity.ranges.lin_vel_y = (-1.5, 1.5)
         # self.commands.base_velocity.ranges.ang_vel_z = (-1.5, 1.5)
