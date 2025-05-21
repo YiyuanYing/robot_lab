@@ -7,7 +7,8 @@ from robot_lab.assets import ISAACLAB_ASSETS_DATA_DIR
 XJQR_2LEG_WHEEL=ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         # usd_path=f"/home/ime-lab/XJQR/twoleg_foot/urdf/twoleg_foot/twoleg_foot.usd",
-        usd_path=f"/home/ime-lab/isaacsim/standalone_examples/scripts/robotenv8.usd",
+        usd_path=f"/home/ime-lab/isaacsim/standalone_examples/scripts/robotenv8.usd", 
+        # usd_path需要根据文件实际目录更改，4090上放在isaacsim的文件夹下，repo里在./model下也有一份
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,

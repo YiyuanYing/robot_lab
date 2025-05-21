@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="twoleg_foot_5J">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.013643004895774 7.93162980590364E-07 0.0859988058711454"
+        rpy="0 0 0" />
+      <mass
+        value="3.10945390199589" />
+      <inertia
+        ixx="0.00934001308296876"
+        ixy="-1.90416051878638E-09"
+        ixz="1.49895631162278E-07"
+        iyy="0.0217925945259764"
+        iyz="-3.8029518818086E-08"
+        izz="0.0240800105411559" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left_Link1">
+    <inertial>
+      <origin
+        xyz="0.0079825523298408 -4.50865902585396E-05 0.0367881420274613"
+        rpy="0 0 0" />
+      <mass
+        value="0.238485739146011" />
+      <inertia
+        ixx="0.00016047963206388"
+        ixy="-1.70377510394899E-08"
+        ixz="2.36990442421366E-06"
+        iyy="0.000162839075296289"
+        iyz="8.40873201521927E-08"
+        izz="0.000140875618411013" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.854901960784314 0.854901960784314 0.854901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint1"
+    type="revolute">
+    <origin
+      xyz="0.126 0 0.057714"
+      rpy="3.1416 -0.7854 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="9"
+      velocity="4" />
+  </joint>
+  <link
+    name="Left_Link2">
+    <inertial>
+      <origin
+        xyz="-2.59212361961043E-05 -0.0478095316134824 -0.0104737983474142"
+        rpy="0 0 0" />
+      <mass
+        value="0.124068775292257" />
+      <inertia
+        ixx="8.21528716825139E-05"
+        ixy="-6.24494359433248E-09"
+        ixz="-3.57216894518168E-08"
+        iyy="3.44293185125146E-05"
+        iyz="2.83186405787448E-06"
+        izz="9.22034985201146E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint2"
+    type="revolute">
+    <origin
+      xyz="0.04275 0 0.04105"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="Left_Link1" />
+    <child
+      link="Left_Link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="9"
+      velocity="4" />
+  </joint>
+  <link
+    name="Left_Link3">
+    <inertial>
+      <origin
+        xyz="1.115432175216E-05 -0.0160034117315548 -0.0377275570862976"
+        rpy="0 0 0" />
+      <mass
+        value="0.154593855527533" />
+      <inertia
+        ixx="7.48360086999987E-05"
+        ixy="8.92895374741487E-09"
+        ixz="2.87062145894065E-08"
+        iyy="8.38191871420754E-05"
+        iyz="-8.9586850315822E-06"
+        izz="6.20708624383725E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint3"
+    type="revolute">
+    <origin
+      xyz="0 -0.0969 -0.0110500000000001"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="Left_Link2" />
+    <child
+      link="Left_Link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="15" />
+  </joint>
+  <link
+    name="Left_Link4">
+    <inertial>
+      <origin
+        xyz="5.79600776105703E-05 -0.07169885979582 0.00570636373232697"
+        rpy="0 0 0" />
+      <mass
+        value="0.145990900684867" />
+      <inertia
+        ixx="0.000190396621110576"
+        ixy="7.81613638782873E-07"
+        ixz="9.3145438805796E-08"
+        iyy="3.62993395743349E-05"
+        iyz="-1.86542623690102E-05"
+        izz="0.000193175937759761" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint4"
+    type="revolute">
+    <origin
+      xyz="0 0.008 -0.041"
+      rpy="1.5708 0 -3.1416" />
+    <parent
+      link="Left_Link3" />
+    <child
+      link="Left_Link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="3"
+      velocity="12" />
+  </joint>
+  <link
+    name="Left_Link5">
+    <inertial>
+      <origin
+        xyz="-3.76792750414578E-05 -0.00936786036029622 0.0318853214772347"
+        rpy="0 0 0" />
+      <mass
+        value="0.135911926211998" />
+      <inertia
+        ixx="4.0663066862556E-05"
+        ixy="7.7133863274154E-09"
+        ixz="-1.99376169154421E-08"
+        iyy="4.66682283421979E-05"
+        iyz="-3.79290943057306E-06"
+        izz="3.4777882939278E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Left_Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint5"
+    type="revolute">
+    <origin
+      xyz="0 -0.1364 0.001"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Left_Link4" />
+    <child
+      link="Left_Link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="15" />
+  </joint>
+  <link
+    name="Right_Link1">
+    <inertial>
+      <origin
+        xyz="-0.00798255232481623 -3.17460933430335E-05 0.0367341196326673"
+        rpy="0 0 0" />
+      <mass
+        value="0.238485739194803" />
+      <inertia
+        ixx="0.00016047963210501"
+        ixy="9.86789665342941E-09"
+        ixz="-2.35099818989148E-06"
+        iyy="0.000162935769054922"
+        iyz="-1.00610547185295E-07"
+        izz="0.000140778924712756" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint1"
+    type="revolute">
+    <origin
+      xyz="-0.153287975927055 0 0.0577144013466578"
+      rpy="3.14159265358979 0.785398163397443 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="9"
+      velocity="4" />
+  </joint>
+  <link
+    name="Right_Link2">
+    <inertial>
+      <origin
+        xyz="-0.0478095323053692 -2.11778235934771E-07 0.0108020452989008"
+        rpy="0 0 0" />
+      <mass
+        value="0.124068777086543" />
+      <inertia
+        ixx="3.44293184238918E-05"
+        ixy="-1.10599914290494E-08"
+        ixz="-2.84637782291539E-06"
+        iyy="8.21279974534663E-05"
+        iyz="2.72559241935628E-09"
+        izz="9.22283725821581E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0425 0 0.0410499999999999"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="Right_Link1" />
+    <child
+      link="Right_Link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="9"
+      velocity="4" />
+  </joint>
+  <link
+    name="Right_Link3">
+    <inertial>
+      <origin
+        xyz="-2.54038085041022E-05 -0.0160034117009831 0.0377327521187761"
+        rpy="0 0 0" />
+      <mass
+        value="0.15459385579605" />
+      <inertia
+        ixx="7.48514328485236E-05"
+        ixy="-2.00191562540139E-08"
+        ixz="2.28142277765459E-08"
+        iyy="8.38191869508431E-05"
+        iyz="8.96313524667183E-06"
+        izz="6.20554380978839E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint3"
+    type="revolute">
+    <origin
+      xyz="-0.0968999999999999 0 0.0113"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="Right_Link2" />
+    <child
+      link="Right_Link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="15" />
+  </joint>
+  <link
+    name="Right_Link4">
+    <inertial>
+      <origin
+        xyz="-8.40729039699674E-05 -0.0716988600198238 -0.00566598542958513"
+        rpy="0 0 0" />
+      <mass
+        value="0.145990900982084" />
+      <inertia
+        ixx="0.000190327954853195"
+        ixy="-7.75883477899461E-07"
+        ixz="1.23123324923912E-07"
+        iyy="3.62993395258124E-05"
+        iyz="1.86454574363625E-05"
+        izz="0.000193244603901421" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint4"
+    type="revolute">
+    <origin
+      xyz="0 0.008 0.041"
+      rpy="-1.5708 0 -3.1416" />
+    <parent
+      link="Right_Link3" />
+    <child
+      link="Right_Link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.093"
+      upper="2.093"
+      effort="3"
+      velocity="12" />
+  </joint>
+  <link
+    name="Right_Link5">
+    <inertial>
+      <origin
+        xyz="0.00936786039748053 -3.49586488769687E-05 0.0318565772215698"
+        rpy="0 0 0" />
+      <mass
+        value="0.135911925339884" />
+      <inertia
+        ixx="4.66682283450725E-05"
+        ixy="-7.14323298892881E-09"
+        ixz="3.78706490739581E-06"
+        iyy="4.06527981721631E-05"
+        iyz="3.07755838105869E-08"
+        izz="3.47881516305369E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://twoleg_foot_5J/meshes/Right_Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint5"
+    type="revolute">
+    <origin
+      xyz="0 -0.1364 -0.001"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Right_Link4" />
+    <child
+      link="Right_Link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="15" />
+  </joint>
+</robot>

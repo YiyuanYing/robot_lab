@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="4LEGS">
+  <link name="world" />
+  
+   <link name="base_link">
+   <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+    </collision>
+    
+  </link>
+
+  <joint
+    name="world_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.5"
+      rpy="0 0 0" />
+    <parent
+      link="world" />
+    <child
+      link="base_link" />
+  </joint>
+
+  <link
+    name="FL_Link1">
+    <inertial>
+      <origin
+        xyz="0.0075413919439275 4.56405399566415E-05 0.0386082778283537"
+        rpy="0 0 0" />
+      <mass
+        value="0.252436609586893" />
+      <inertia
+        ixx="0.000163602528163614"
+        ixy="1.58043916114717E-08"
+        ixz="2.36465968243228E-06"
+        iyy="0.000165919288048051"
+        iyz="1.84763723768625E-08"
+        izz="0.000147114667869166" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.854901960784314 0.854901960784314 0.854901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint1"
+    type="revolute">
+    <origin
+      xyz="0.05 0 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+  <link
+    name="FL_Link2">
+    <inertial>
+      <origin
+        xyz="-1.97582917486824E-05 0.0478095355570258 0.00949795457524202"
+        rpy="0 0 0" />
+      <mass
+        value="0.124068765230541" />
+      <inertia
+        ixx="8.21413695420164E-05"
+        ixy="7.42550873664215E-09"
+        ixz="-2.87315655585463E-08"
+        iyy="3.44293186861105E-05"
+        iyz="2.84563230119216E-06"
+        izz="9.22150358483519E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint2"
+    type="revolute">
+    <origin
+      xyz="0.0438 0 0.045"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="FL_Link1" />
+    <child
+      link="FL_Link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+  <link
+    name="FL_Link3">
+    <inertial>
+      <origin
+        xyz="5.11236795452605E-05 -0.0160034046894012 0.0367661864356854"
+        rpy="0 0 0" />
+      <mass
+        value="0.154593914788053" />
+      <inertia
+        ixx="7.4828680209336E-05"
+        ixy="4.10675604592304E-08"
+        ixz="-2.91652138375772E-08"
+        iyy="8.38192565835953E-05"
+        iyz="8.98753675610467E-06"
+        izz="6.20782589403699E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.0979 0.01"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="FL_Link2" />
+    <child
+      link="FL_Link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+  <link
+    name="FL_Link4">
+    <inertial>
+      <origin
+        xyz="0.000104614920250552 -0.0716988598988787 0.00473606463478796"
+        rpy="0 0 0" />
+      <mass
+        value="0.145990873111669" />
+      <inertia
+        ixx="0.000190328503090644"
+        ixy="7.71444238881416E-07"
+        ixz="1.24048414118942E-07"
+        iyy="3.62993303426488E-05"
+        iyz="-1.86607654861886E-05"
+        izz="0.000193244014013544" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint4"
+    type="revolute">
+    <origin
+      xyz="0 0.009 0.04"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="FL_Link3" />
+    <child
+      link="FL_Link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+  <link
+    name="FL_Link5">
+    <inertial>
+      <origin
+        xyz="3.2512908206897E-05 -0.0023524621993824 0.0291397339160281"
+        rpy="0 0 0" />
+      <mass
+        value="0.0964186497333119" />
+      <inertia
+        ixx="3.34159847686008E-05"
+        ixy="4.71590899623191E-09"
+        ixz="-3.57771116735319E-08"
+        iyy="3.8865339643509E-05"
+        iyz="3.7842639460347E-06"
+        izz="2.76191794299111E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint5"
+    type="revolute">
+    <origin
+      xyz="0 -0.1374 0"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="FL_Link4" />
+    <child
+      link="FL_Link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+  <link
+    name="FL_Link6">
+    <inertial>
+      <origin
+        xyz="-0.00033026 2.3415E-10 0.033535"
+        rpy="0 0 0" />
+      <mass
+        value="0.081023" />
+      <inertia
+        ixx="1.9947E-05"
+        ixy="-1.2843E-13"
+        ixz="3.4852E-08"
+        iyy="2.9441E-05"
+        iyz="-4.6736E-13"
+        izz="1.7748E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://4LEGS/meshes/FL_Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_Joint6"
+    type="revolute">
+    <origin
+      xyz="0 0.0184 0.035"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="FL_Link5" />
+    <child
+      link="FL_Link6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="150"
+      velocity="3.15" />
+  </joint>
+
+<link name="link7">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0001" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <!-- 示例使用一个立方体作为几何体，可根据需要替换为 mesh -->
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="link7_material">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint7" type="fixed">
+    <!-- 这里假设机械部件末端位于 link6 局部坐标系下沿正 Z 方向 0.1 米处，实际值请根据模型尺寸调整 -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="FL_Link6"/>
+    <child link="link7"/>
+  </joint>
+ 
+</robot> 
