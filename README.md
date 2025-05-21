@@ -440,14 +440,14 @@ The codes structure for the training settings of XJQR in this repo is as followi
 
 ```
 source/robot_lab/robot_lab/tasks/locomotion/velocity/config/quadruped/xjqr_2leg_wheel/
-├── __init__.py
 ├── agents/
 │   ├── __init__.py
 │   └── rsl_rl_ppo_cfg.py
+├── __init__.py
 └── satellite_env_cfg.py
 ```
 
-To run the train and play code:
+To train and play the robot (XJQR):
 ```
 # Train
 python scripts/rsl_rl/base/train.py --task Isaac-Velocity-Satellite-XJQR-2leg-wheel-v0 --headless
